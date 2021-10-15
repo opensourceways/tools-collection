@@ -72,8 +72,7 @@ resource "null_resource" "provision" {
       "echo 'source /etc/profile' >> ~/.bashrc",
       "cd /home",
       
- #     "wget -c '${var.privateUrl}' -O id_rsa",
- #     "wget -c '${var.publicUrl}' -O id_rsa.pub",
+
       "sh /home/java.sh", 
       "sh /home/useradd.sh",      
 
