@@ -69,7 +69,7 @@
 
 ​       
 
-#### 步骤三：在shell中添加脚本信息，然后对这个job进行构建
+#### 步骤三：在shell中添加脚本信息，然后对这个job进行构建(注意配置的华为云需有能力创建eip等)
 
 ​         
 ![image](https://user-images.githubusercontent.com/78532744/137423549-56cc6de2-2f13-484b-9b23-88e41e9ee35d.png)
