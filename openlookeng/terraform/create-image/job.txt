@@ -30,7 +30,7 @@ EF
 rm -rf terraform-test
 mkdir terraform-test
 cd terraform-test
-#下载并安装terraform
+#Download and install terraform
 wget  https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
 unzip terraform_1.0.0_linux_amd64.zip -d /usr/bin/
 rm -rf terraform_1.0.0_linux_amd64.zip
@@ -54,7 +54,6 @@ wget https://github.com/huaweicloud/terraform-provider-huaweicloud/releases/down
 mkdir -p ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
 unzip terraform-provider-huaweicloud_1.28.1_linux_amd64.zip -d ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
 
-#对terraform 进行初始化
 terraform init
 terraform init
 terraform init
