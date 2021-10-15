@@ -48,7 +48,7 @@
 
 ### 开始使用 <a id="start_use"/>
 
-#### 步骤一：在jenkins安装并配置HuaweiCloud ECS plugin
+#### 步骤一：在jenkins安装并配置HuaweiCloud ECS plugin   或者在linux中执行
 
 1. 在GitHub上搜索huaweicloud-ecs-plugin
 
