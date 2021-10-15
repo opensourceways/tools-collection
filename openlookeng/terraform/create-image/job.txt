@@ -54,7 +54,7 @@ wget https://github.com/huaweicloud/terraform-provider-huaweicloud/releases/down
 mkdir -p ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
 unzip terraform-provider-huaweicloud_1.28.1_linux_amd64.zip -d ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
 
-terraform init
+
 terraform init
 terraform init
 
