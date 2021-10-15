@@ -18,10 +18,10 @@ if [ ! -d "$mvnpath" ]; then
     echo "$mvnpath Directory created successfully"
 fi
 
-#apache-maven-3.6
+
 echo "Downloading maven installation package, please wait. ..."
 
-#wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+
 
 wget https://repo.huaweicloud.com/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 
