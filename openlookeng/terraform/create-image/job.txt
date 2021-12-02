@@ -1,0 +1,83 @@
+
+rm -rf test
+mkdir test
+cd test/
+
+touch id_rsa
+cat $id_rsa122 >> id_rsa
+
+touch id_rsa.pub
+echo "$public" >> id_rsa.pub
+
+cd ..
+cp ./test/* /root/.ssh/
+chmod 600 /root/.ssh/id_rsa
+chmod 644 /root/.ssh/id_rsa.pub
+
+yum -y install expect
+
+yum install -y git
+
+/usr/bin/expect <<-EF
+spawn ssh -T git@gitee.com
+expect {
+
+   "yes/no" {send "yes\n"}
+
+}
+expect eof
+EF
+rm -rf terraform-test
+mkdir terraform-test
+cd terraform-test
+#Download and install terraform
+wget  https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+unzip terraform_1.0.0_linux_amd64.zip -d /usr/bin/
+rm -rf terraform_1.0.0_linux_amd64.zip
+
+cd ..
+
+cp ./test/* ./terraform-test/
+cd terraform-test
+/usr/bin/expect <<-EF
+spawn git clone git@github.com:adnbj/openlookeng-create-image.git
+expect {
+
+   "Are you sure you want to continue connecting (yes/no)?" {send "yes\n"}
+
+}
+expect eof
+EF
+
+cp ./openlookeng-create-image/file/* ./
+wget https://github.com/huaweicloud/terraform-provider-huaweicloud/releases/download/v1.28.1/terraform-provider-huaweicloud_1.28.1_linux_amd64.zip
+mkdir -p ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
+unzip terraform-provider-huaweicloud_1.28.1_linux_amd64.zip -d ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.28.1/linux_amd64
+
+
+terraform init
+terraform init
+
+terraform apply -var="ak=$ak" -var="sk=$sk" -var="region=$region" -var="subnet=$subnet" -var="public=$public" -auto-approve
+
+terraform state rm huaweicloud_images_image.test
+
+
+terraform apply -destroy -var="ak=$ak" -var="sk=$sk" -var="region=$region" -var="subnet=$subnet" -var="public=$public" -auto-approve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
